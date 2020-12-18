@@ -3,5 +3,5 @@ __pycache__/
 Template.afphoto
 .cache
 .DS_Store
-vscode/
+.vscode/
 .gitattributes
