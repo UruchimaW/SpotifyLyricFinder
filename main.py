@@ -13,23 +13,27 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth( scope=scope,
                                                 redirect_uri=config.SPOTIPY_REDIRECT_URI))
 
 info = sp.current_playback()
-# pprint.pprint(info["item"]["name"])
+# playback_state = info["is_playing"]
+# if playback_state == True:
+# print(info)
+pprint.pprint(info)
 spotify_artist = info["item"]["album"]["artists"][0]["name"]
 spotify_song = info["item"]["name"]
+genius = lyricsgenius.Genius(config.genius_token)
+# user_artist = spotify_artist
+song = genius.search_song(spotify_song, spotify_artist)
+print(song.lyrics)
+
+# else:
+#     print("Nothing playing")
 
 # results = sp.current_user_saved_tracks()
 # for idx, item in enumerate(results['items']):
 #     track = item['track']
 #     print(idx, track['artists'][0]['name'], " – ", track['name'])
 
-genius = lyricsgenius.Genius(config.genius_token)
-user_artist = spotify_artist
-
 # artist = genius.search_artist(""+ user_artist +"", max_songs=3, sort="title")
 
 # print(artist.songs)
 # song = artist.song(spotify_song)
 # or:
-song = genius.search_song(spotify_song, spotify_artist)
-print(song.lyrics)
-
