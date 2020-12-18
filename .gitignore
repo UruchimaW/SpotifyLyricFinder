@@ -1,3 +1,5 @@
 config.py
 __pycache__/
 Template.afphoto
+.cache
+.DS_Store
