@@ -4,7 +4,6 @@ import pprint
 import lyricsgenius
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-# from PIL import ImageTk,Image  
 
 scope = "user-library-read, user-read-playback-state"
 
